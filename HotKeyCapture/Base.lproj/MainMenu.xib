@@ -5,16 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
-            <connections>
-                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
-            </connections>
-        </customObject>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="HotKeyCapture" customModuleProvider="target">
+        <customObject id="Voe-Tx-rLC" customClass="HKCAppDelegate" customModule="HotKeyCapture" customModuleProvider="target">
             <connections>
-                <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
+                <outlet property="appShortcutField" destination="3a3-pn-KJP" id="Dhj-RH-9Km"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="boE-yu-pLj"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -699,7 +696,7 @@
                 </subviews>
                 <animations/>
             </view>
-            <point key="canvasLocation" x="10.5" y="101.5"/>
+            <point key="canvasLocation" x="117.5" y="129.5"/>
         </window>
     </objects>
 </document>

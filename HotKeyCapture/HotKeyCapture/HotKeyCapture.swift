@@ -9,9 +9,9 @@
 import Carbon
 
 class HotKeyCapture: NSObject {
-    var mName = String()
+    var mName: String?
     var mTarget: AnyObject?
-    var mAction = String()
+    var mAction = Selector()
     var mKeyCombo: HotKeyCombo?
     var _carbonHotKey: EventHotKeyRef?
     
@@ -23,7 +23,7 @@ class HotKeyCapture: NSObject {
     
     var name: String {
         get {
-            return mName
+            return mName!
         }
         
         set(n) {
@@ -41,7 +41,7 @@ class HotKeyCapture: NSObject {
         }
         
     }
-    var action: String {
+    var action: Selector {
         get {
             return mAction
         }
@@ -72,7 +72,7 @@ class HotKeyCapture: NSObject {
     }
     
     func invoke() {
-        mTarget?.performSelector(Selector(mAction), withObject: self)
+        mTarget?.performSelector(mAction, withObject: self)
     }
     
     

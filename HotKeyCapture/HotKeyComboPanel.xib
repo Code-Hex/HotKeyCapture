@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-2" userLabel="File's Owner" customClass="HotKeyComboPanel" customModule="HotKeyCapture" customModuleProvider="target">
+            <connections>
+                <outlet property="mComboField" destination="ibN-8I-T9l" id="MIH-Nd-DcF"/>
+                <outlet property="mKeyCaster" destination="dhr-lg-PnQ" id="6mw-Ym-u0P"/>
+                <outlet property="mTitleField" destination="Aif-Za-ved" id="Hnk-6R-oMR"/>
+            </connections>
+        </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="gmF-gR-Bfl" userLabel="Panel">
@@ -25,6 +30,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="clear:" target="-2" id="DNt-K7-m54"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iHi-B0-nC8">
                         <rect key="frame" x="214" y="13" width="82" height="32"/>
@@ -33,16 +41,10 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="cancel:" target="-2" id="3Zr-Jt-fhO"/>
+                        </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="304" translatesAutoresizingMaskIntoConstraints="NO" id="Aif-Za-ved">
-                        <rect key="frame" x="70" y="90" width="306" height="55"/>
-                        <animations/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Press a key combination to %@." id="5jI-ii-4Vx">
-                            <font key="font" metaFont="systemBold"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="77" translatesAutoresizingMaskIntoConstraints="NO" id="Ue9-Ha-rxd">
                         <rect key="frame" x="70" y="62" width="79" height="17"/>
                         <animations/>
@@ -59,8 +61,11 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="ok:" target="-2" id="snR-8N-xfT"/>
+                        </connections>
                     </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dhr-lg-PnQ" customClass="PTKeyBroadcaster">
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dhr-lg-PnQ" customClass="HotKeyBroadcaster" customModule="HotKeyCapture" customModuleProvider="target">
                         <rect key="frame" x="45" y="61" width="22" height="19"/>
                         <string key="toolTip">
 Based on CocoaHotKeyLib
@@ -84,6 +89,15 @@ http://www.rogueamoeba.com/
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="304" translatesAutoresizingMaskIntoConstraints="NO" id="Aif-Za-ved">
+                        <rect key="frame" x="70" y="90" width="306" height="55"/>
+                        <animations/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Press a key combination to %@." id="5jI-ii-4Vx">
+                            <font key="font" metaFont="systemBold"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                 </subviews>

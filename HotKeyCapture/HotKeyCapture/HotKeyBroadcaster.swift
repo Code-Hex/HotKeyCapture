@@ -9,9 +9,9 @@
 import Cocoa
 import Carbon
 
+let HotKeyBroadcasterEvent = "HotKeyBroadcasterEvent"
+
 class HotKeyBroadcaster: NSButton {
-    
-    let HotKeyBroadcasterEvent = "HotKeyBroadcasterEvent"
     
     func bcastKeyCode(keyCode: UInt16, modifiers: Int) {
         let keyCombo = HotKeyCombo.keyComboWithKeyCode(Int(keyCode), modifiers: modifiers)

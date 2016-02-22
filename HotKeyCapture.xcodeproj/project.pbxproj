@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		70FC2F6F1C776E300009ABC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F6E1C776E300009ABC1 /* AppDelegate.swift */; };
+		70FC2F6F1C776E300009ABC1 /* HKCAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F6E1C776E300009ABC1 /* HKCAppDelegate.swift */; };
 		70FC2F711C776E300009ABC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70FC2F701C776E300009ABC1 /* Assets.xcassets */; };
 		70FC2F741C776E300009ABC1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FC2F721C776E300009ABC1 /* MainMenu.xib */; };
 		70FC2F7D1C776EEC0009ABC1 /* HotKeyCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F7C1C776EEC0009ABC1 /* HotKeyCapture.swift */; };
@@ -21,7 +21,7 @@
 
 /* Begin PBXFileReference section */
 		70FC2F6B1C776E300009ABC1 /* HotKeyCapture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotKeyCapture.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		70FC2F6E1C776E300009ABC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		70FC2F6E1C776E300009ABC1 /* HKCAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKCAppDelegate.swift; sourceTree = "<group>"; };
 		70FC2F701C776E300009ABC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70FC2F731C776E300009ABC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		70FC2F751C776E300009ABC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				70FC2F7E1C7771390009ABC1 /* HotKeyCapture.entitlements */,
-				70FC2F6E1C776E300009ABC1 /* AppDelegate.swift */,
+				70FC2F6E1C776E300009ABC1 /* HKCAppDelegate.swift */,
 				70FC2F7B1C776EDC0009ABC1 /* HotKeyCapture */,
 				70FC2F701C776E300009ABC1 /* Assets.xcassets */,
 				70FC2F721C776E300009ABC1 /* MainMenu.xib */,
@@ -171,7 +171,7 @@
 				70FC2F7D1C776EEC0009ABC1 /* HotKeyCapture.swift in Sources */,
 				70FC2F841C7771860009ABC1 /* HotKeyCombo.swift in Sources */,
 				70FC2F801C7771600009ABC1 /* HotKeyCaptureCenter.swift in Sources */,
-				70FC2F6F1C776E300009ABC1 /* AppDelegate.swift in Sources */,
+				70FC2F6F1C776E300009ABC1 /* HKCAppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +277,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = HotKeyCapture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = CodeHex.HotKeyCapture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -291,6 +292,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = HotKeyCapture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = CodeHex.HotKeyCapture;
 				PRODUCT_NAME = "$(TARGET_NAME)";

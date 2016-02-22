@@ -92,7 +92,8 @@ class HotKeyCombo {
         var str = ""
         for var i = 0; i < 4; i++ {
             if Int(modifiers) & modToChar[i][0] > 0 {
-                str += "\(unichar(modToChar[i][1]))"
+                let c = UnsafeMutablePointer<unichar>(bitPattern: modToChar[i][1])
+                str += String(NSString(characters: c, length: 1))
             }
         }
         
@@ -106,7 +107,7 @@ class HotKeyCombo {
         return (str != nil) ? String(str) : String(NSString(format: "%X", keyCode))
     }
     
-    func description() -> NSString {
+    func description() -> String {
         return self.isValidHotKeyCombo() ?
                     String(NSString(format: "%@%@", HotKeyCombo.stringForModifiers(self.modifiers()),
                                              HotKeyCombo.stringForKeyCode(self.keyCode())))
