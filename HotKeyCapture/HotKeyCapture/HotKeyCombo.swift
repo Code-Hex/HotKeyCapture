@@ -36,12 +36,12 @@ class HotKeyCombo {
         self.mModifiers = modifiers
     }
     
-    func keyCode() -> UInt32 {
-        return UInt32(mKeyCode)
+    func keyCode() -> Int {
+        return mKeyCode
     }
     
-    func modifiers() -> UInt32 {
-        return UInt32(mModifiers)
+    func modifiers() -> Int {
+        return mModifiers
     }
     
     func isValidHotKeyCombo() -> Bool {
@@ -52,22 +52,27 @@ class HotKeyCombo {
         return mKeyCode == -1 && mModifiers == -1
     }
     
-    class func stringForModifiers(modifiers: UInt32) -> String {
+    class func stringForModifiers(modifiers: Int) -> String {
         
-        let mod = [cmdKey, optionKey, controlKey, shiftKey]
-        let ToChar = ["⌘", "⌥", "⌃", "⇧"]
+        let modToChar = [
+            "⌘" : cmdKey,
+            "⌥" : optionKey,
+            "⌃" : controlKey,
+            "⇧" : shiftKey,
+            //"⇪" : alphaLock // Ignore?
+        ]
         
         var str = ""
-        for var i = 0; i < 4; i++ {
-            if Int(modifiers) & mod[i] > 0 {
-                str += ToChar[i]
+        for (ToChar, mod) in modToChar {
+            if modifiers & mod > 0 {
+                str += ToChar
             }
         }
         
         return str
     }
     
-    class func stringForKeyCode(keyCode: UInt32) -> String {
+    class func stringForKeyCode(keyCode: Int) -> String {
         let dic = self.keyCodesDictionary()
         let key = String(format: "%d", keyCode)
         let str = dic[key]

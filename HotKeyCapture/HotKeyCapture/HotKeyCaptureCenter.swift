@@ -8,7 +8,7 @@
 
 import Carbon
 
-class HotKeyCaptureCenter: NSObject {
+class HotKeyCaptureCenter {
     
     var mHotKeys = NSMutableDictionary()
     var mHotKeyMap = NSMutableDictionary()
@@ -23,11 +23,6 @@ class HotKeyCaptureCenter: NSObject {
         return Shared.instance
     }
     
-    override init() {
-        super.init()
-        mNextKeyID = 1
-    }
-    
     func registerHotKey(hotKey: HotKeyCapture) -> Bool {
         var err: OSStatus?
         var hotKeyID = EventHotKeyID()
@@ -39,7 +34,7 @@ class HotKeyCaptureCenter: NSObject {
         
         hotKeyID.signature = UTGetOSTypeFromString("PTHk")
         hotKeyID.id = mNextKeyID
-        err = RegisterEventHotKey(hotKey.KeyCombo.keyCode(), hotKey.KeyCombo.modifiers(), hotKeyID,GetEventDispatcherTarget(), 0, &carbonHotKey)
+        err = RegisterEventHotKey(UInt32(hotKey.KeyCombo.keyCode()), UInt32(hotKey.KeyCombo.modifiers()), hotKeyID, GetEventDispatcherTarget(), 0, &carbonHotKey)
         
         if err != 0 {
             return false
@@ -50,7 +45,6 @@ class HotKeyCaptureCenter: NSObject {
         mNextKeyID++
        
         hotKey.carbonHotKey = carbonHotKey
-        NSLog(hotKey.name)
         mHotKeys.setObject(hotKey, forKey: hotKey.name)
         self.updateEventHandler()
         
@@ -64,9 +58,9 @@ class HotKeyCaptureCenter: NSObject {
             UnregisterEventHotKey(carbonHotKey)
             mHotKeys.removeObjectForKey(hotKey.name)
             
-            let a = mHotKeyMap.allKeysForObject(hotKey)
-            if a.count > 0 {
-                mHotKeyMap.removeObjectsForKeys(a)
+            let allKeys = mHotKeyMap.allKeysForObject(hotKey)
+            if allKeys.count > 0 {
+                mHotKeyMap.removeObjectsForKeys(allKeys)
             }
             
             self.updateEventHandler()
@@ -77,24 +71,24 @@ class HotKeyCaptureCenter: NSObject {
         self.unregisterHotKey(hotKeyForName(name))
     }
     
-    func unregisterAllHotKeys() {
+    func updateHotKey(hk: HotKeyCapture) {
+        self.unregisterHotKey(hotKeyForName(hk.name))
+        self.registerHotKey(hk)
+    }
+    
+    private func unregisterAllHotKeys() {
         let enu = mHotKeys.objectEnumerator()
         while let thing = enu.nextObject() {
             self.unregisterHotKey(thing as! HotKeyCapture)
         }
     }
     
-    func setHotKeyRegistrationForName(name: String, ok: Bool) {
+    private func setHotKeyRegistrationForName(name: String, ok: Bool) {
         if ok {
             self.registerHotKey(hotKeyForName(name))
         } else {
             self.unregisterHotKey(hotKeyForName(name))
         }
-    }
-    
-    func updateHotKey(hk: HotKeyCapture) {
-        self.unregisterHotKey(hotKeyForName(hk.name))
-        self.registerHotKey(hk)
     }
     
     private func hotKeyForName(name: String) -> HotKeyCapture {
@@ -103,7 +97,7 @@ class HotKeyCaptureCenter: NSObject {
             : HotKeyCapture()
     }
     
-    func updateEventHandler() {
+    private func updateEventHandler() {
         if mHotKeyMap.count == 0 && mEventHandlerInstalled == false {
             var eventType = EventTypeSpec()
             eventType.eventClass = OSType(kEventClassKeyboard)
@@ -118,10 +112,10 @@ class HotKeyCaptureCenter: NSObject {
     }
     
     
-    func sendCarbonEvent(event: EventRef) -> OSStatus {
+    private func sendCarbonEvent(event: EventRef) -> OSStatus {
         var hotkey: HotKeyCapture?
         
-        assert(Int(GetEventClass(event)) == kEventClassKeyboard, "Unknown event class")
+        assert(Int(GetEventClass(event)) == kEventClassKeyboard, "HotKeyCaptureCenter: Unknown event class")
         var hotkeyID = EventHotKeyID()
         let err = GetEventParameter(event, EventParamName(kEventParamDirectObject), EventParamType(typeEventHotKeyID), nil, sizeof(EventHotKeyID), nil, &hotkeyID)
         
@@ -129,7 +123,7 @@ class HotKeyCaptureCenter: NSObject {
             return err
         }
         
-        assert(hotkeyID.signature == UTGetOSTypeFromString("PTHk"), "Invalid hot key id")
+        assert(hotkeyID.signature == UTGetOSTypeFromString("PTHk"), "HotKeyCaptureCenter: Invalid hot key id")
         let kid = UInt(hotkeyID.id)
         hotkey = mHotKeyMap.objectForKey(kid) as? HotKeyCapture
 
@@ -138,7 +132,7 @@ class HotKeyCaptureCenter: NSObject {
                 self.hotkeyDown(hotkey!)
                 break;
             default:
-                assert(false, "Unknown event kind");
+                assert(false, "HotKeyCaptureCenter: Unknown event kind");
         }
         return noErr
     }
