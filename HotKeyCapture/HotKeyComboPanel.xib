@@ -9,6 +9,7 @@
                 <outlet property="mComboField" destination="ibN-8I-T9l" id="MIH-Nd-DcF"/>
                 <outlet property="mKeyCaster" destination="dhr-lg-PnQ" id="6mw-Ym-u0P"/>
                 <outlet property="mTitleField" destination="Aif-Za-ved" id="Hnk-6R-oMR"/>
+                <outlet property="window" destination="gmF-gR-Bfl" id="z2k-0x-sm2"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -103,6 +104,9 @@ http://www.rogueamoeba.com/
                 </subviews>
                 <animations/>
             </view>
+            <connections>
+                <outlet property="initialFirstResponder" destination="dhr-lg-PnQ" id="J6I-vY-lgq"/>
+            </connections>
             <point key="canvasLocation" x="271" y="195.5"/>
         </window>
     </objects>

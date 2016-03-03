@@ -16,7 +16,7 @@ class HotKeyBroadcaster: NSButton {
     func bcastKeyCode(keyCode: UInt16, modifiers: Int) {
         let keyCombo = HotKeyCombo.keyComboWithKeyCode(Int(keyCode), modifiers: modifiers)
         let userinfo = NSDictionary(objects: [keyCombo], forKeys: ["keyCombo"])
-        NSNotificationCenter.defaultCenter().postNotificationName(HotKeyBroadcasterEvent, object: self, userInfo: userinfo as [NSObject : AnyObject])
+        NSNotificationCenter.defaultCenter().postNotificationName(HotKeyBroadcasterEvent, object: self, userInfo: userinfo as [NSObject: AnyObject])
     }
     
     func bcastEvent(event: NSEvent) {
@@ -59,7 +59,7 @@ class HotKeyBroadcaster: NSButton {
         
         var carbonModifiers = 0
         
-        for var i = 0; i < 6; i++ {
+        for var i = 0; i < 5; i++ {
             if cocoaModifiers.contains(cocoaTo[i]) {
                 carbonModifiers += ToCarbon[i]
             }

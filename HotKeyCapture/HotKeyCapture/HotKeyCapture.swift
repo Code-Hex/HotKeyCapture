@@ -9,11 +9,11 @@
 import Carbon
 
 class HotKeyCapture: NSObject {
-    var mName: String?
+    var mName = ""
     var mTarget: AnyObject?
     var mAction = Selector()
     var mKeyCombo: HotKeyCombo?
-    var _carbonHotKey: EventHotKeyRef?
+    var _carbonHotKey = EventHotKeyRef()
     
     override init() {
         super.init()
@@ -23,7 +23,7 @@ class HotKeyCapture: NSObject {
     
     var name: String {
         get {
-            return mName!
+            return mName
         }
         
         set(n) {
@@ -63,7 +63,7 @@ class HotKeyCapture: NSObject {
     
     var carbonHotKey: EventHotKeyRef {
         get {
-            return _carbonHotKey!
+            return _carbonHotKey
         }
         
         set(chkey) {

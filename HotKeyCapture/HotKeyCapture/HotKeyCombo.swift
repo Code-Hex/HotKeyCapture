@@ -12,6 +12,12 @@ class HotKeyCombo {
     
     var mKeyCode = 0
     var mModifiers = 0
+    var description: String {
+        get {
+            return self.isValidHotKeyCombo() ? HotKeyCombo.stringForModifiers(self.modifiers()) + HotKeyCombo.stringForKeyCode(self.keyCode())
+                : "(None)"
+        }
+    }
     
     class func clearKeyCombo() -> HotKeyCombo {
         return self.keyComboWithKeyCode(-1, modifiers: -1)
@@ -20,7 +26,6 @@ class HotKeyCombo {
     class func keyComboWithKeyCode(keyCode: Int, modifiers: Int) -> HotKeyCombo {
         return HotKeyCombo(keyCode: keyCode, modifiers: modifiers)
     }
-    
     
     init(keyCode: Int, modifiers: Int) {
         self.initWithKeyCode(keyCode, modifiers: modifiers)
@@ -67,33 +72,13 @@ class HotKeyCombo {
     
     class func stringForModifiers(modifiers: UInt32) -> String {
         
-        var modToChar = [[Int]]()
-        
-        switch UInt32(CFByteOrderGetCurrent()) {
-            case CFByteOrderBigEndian.rawValue: // big endian
-                modToChar = [
-                    [cmdKey, 0x23180000],
-                    [optionKey, 0x23250000],
-                    [controlKey, 0x005E0000],
-                    [shiftKey, 0x21e70000]
-                ]
-                break
-            default: // little endian or other
-                modToChar = [
-                    [cmdKey, 0x00002318],
-                    [optionKey, 0x00002325],
-                    [controlKey, 0x0000005E],
-                    [shiftKey, 0x000021e7]
-                    
-                ]
-                break
-        }
+        let mod = [cmdKey, optionKey, controlKey, shiftKey]
+        let ToChar = ["⌘", "⌥", "⌃", "⇧"]
         
         var str = ""
         for var i = 0; i < 4; i++ {
-            if Int(modifiers) & modToChar[i][0] > 0 {
-                let c = UnsafeMutablePointer<unichar>(bitPattern: modToChar[i][1])
-                str += String(NSString(characters: c, length: 1))
+            if Int(modifiers) & mod[i] > 0 {
+                str += ToChar[i]
             }
         }
         
@@ -102,16 +87,9 @@ class HotKeyCombo {
     
     class func stringForKeyCode(keyCode: UInt32) -> String {
         let dic = self.keyCodesDictionary()
-        let key = String(NSString(format: "%d", keyCode))
+        let key = String(format: "%d", keyCode)
         let str = dic.objectForKey(key)
-        return (str != nil) ? String(str) : String(NSString(format: "%X", keyCode))
-    }
-    
-    func description() -> String {
-        return self.isValidHotKeyCombo() ?
-                    String(NSString(format: "%@%@", HotKeyCombo.stringForModifiers(self.modifiers()),
-                                             HotKeyCombo.stringForKeyCode(self.keyCode())))
-                    : "(None)"
+        return (str != nil) ? String(str!) : String(format: "%X", keyCode)
     }
     
 }

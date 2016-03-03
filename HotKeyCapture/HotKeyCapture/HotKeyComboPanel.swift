@@ -12,14 +12,15 @@ class HotKeyComboPanel: NSWindowController {
 
     static private var _sharedKeyComboPanel: HotKeyComboPanel? = nil
     
-    var mTitleFormat = "empty"
     var mKeyName = "empty"
+    var mTitleFormat = "empty"
+    var mWindow = NSWindow()
     var mKeyCombo: HotKeyCombo?
     
     var currentModalDelegate: HKCAppDelegate?
     
-    @IBOutlet weak var mTitleField: NSTextField?
-    @IBOutlet weak var mComboField: NSTextField?
+    @IBOutlet weak var mTitleField: NSTextField!
+    @IBOutlet weak var mComboField: NSTextField!
     @IBOutlet weak var mKeyCaster: HotKeyBroadcaster?
     
     var keyCombo: HotKeyCombo? {
@@ -46,19 +47,27 @@ class HotKeyComboPanel: NSWindowController {
     
     class func sharedPanel() -> HotKeyComboPanel {
         if _sharedKeyComboPanel == nil {
-            _sharedKeyComboPanel = HotKeyComboPanel()
+            _sharedKeyComboPanel = HotKeyComboPanel(windowNibName: "HotKeyComboPanel")
         }
         return _sharedKeyComboPanel!
     }
 
+    override init(window: NSWindow!) {
+        super.init(window: window)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func windowDidLoad() {
         mTitleFormat = mTitleField!.stringValue
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "noteKeyBroadcast:", name: HotKeyBroadcasterEvent, object: mKeyCaster)
     }
     
     private func _refreshContents() {
-        mComboField?.stringValue = mKeyCombo!.description()
-        mTitleField?.stringValue = String(NSString(format: mTitleFormat, mKeyName))
+        mComboField!.stringValue = mKeyCombo!.description
+        mTitleField!.stringValue = String(format: mTitleFormat, mKeyName)
     }
     
     func showSheetForHotkey(hotkey: HotKeyCapture?, mainWindow: NSWindow, target: HKCAppDelegate) {
@@ -67,11 +76,10 @@ class HotKeyComboPanel: NSWindowController {
         self.window?.makeFirstResponder(mKeyCaster)
         self.keyCombo = hotkey?.KeyCombo
         self.KeyBindingName = hotkey?.name 
-        
-        self.window?.beginSheet(mainWindow, completionHandler: {
+        mWindow = mainWindow
+        mainWindow.beginSheet(self.window!, completionHandler: {
             returnCode in
-            
-            self.window?.close()
+            self.window!.close()
             
             if returnCode == NSModalResponseOK {
                 hotkey!.KeyCombo = self.mKeyCombo!
@@ -96,37 +104,30 @@ class HotKeyComboPanel: NSWindowController {
     }
     
     @IBAction func ok(sender: NSButton) {
-        if self.window != nil {
-            if self.window!.modalPanel {
-                NSApp.stopModalWithCode(NSModalResponseOK)
-            } else {
-                NSApp.endSheet(self.window!, returnCode: NSModalResponseOK)
-            }
+        if mWindow.modalPanel {
+            NSApp.stopModalWithCode(NSModalResponseOK)
+        } else {
+            mWindow.endSheet((sender as NSButton).window!, returnCode: NSModalResponseOK)
         }
     }
     
     @IBAction func cancel(sender: NSButton) {
-        if self.window != nil {
-            if self.window!.modalPanel {
-                NSApp.stopModalWithCode(NSModalResponseCancel)
-            } else {
-                NSApp.endSheet(self.window!, returnCode: NSModalResponseCancel)
-            }
+        if mWindow.modalPanel {
+            NSApp.stopModalWithCode(NSModalResponseCancel)
+        } else {
+            mWindow.endSheet((sender as NSButton).window!, returnCode: NSModalResponseCancel)
         }
     }
     
     @IBAction func clear(sender: NSButton) {
         self.keyCombo = HotKeyCombo.clearKeyCombo()
-        if self.window != nil {
-            if self.window!.modalPanel {
-                NSApp.stopModalWithCode(NSModalResponseOK)
-            }
+        if mWindow.modalPanel {
+            NSApp.stopModalWithCode(NSModalResponseOK)
         }
     }
     
     func noteKeyBroadcast(notification: NSNotification) {
-        let kC: HotKeyCombo = notification.userInfo!["keyCombo"] as! HotKeyCombo
-        self.keyCombo = kC
+        self.keyCombo = notification.userInfo!["keyCombo"] as? HotKeyCombo
     }
     
 }
