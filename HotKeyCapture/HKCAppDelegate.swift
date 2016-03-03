@@ -16,24 +16,25 @@ class HKCAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     let HotKeyAppToFrontName = "application to foreground"
     let AppActivationKeyCodeKey = "AppActivationKeyCode"
     let AppActivationModifiersKey = "AppActivationModifiers"
+    
     var appActivationHotKey = HotKeyCapture()
     var appActivationKeyCombo = HotKeyCombo.clearKeyCombo()
     
     @IBOutlet weak var appShortcutField: NSTextField!
     
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
-        self.registerAppActivationKeystrokeWithTarget(target: self, selector: Selector("toggle"))
+    @objc internal func applicationDidFinishLaunching(aNotification: NSNotification) {
+        self.registerAppActivationKeystrokeWithTarget(target: self, selector: Selector("myfunc"))
         appShortcutField.stringValue = self.getActivationKeyCombo().description
     }
     
-    func applicationShouldHandleReopen(sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+    @objc internal func applicationShouldHandleReopen(sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         NSApp.activateIgnoringOtherApps(true)
         window.makeKeyAndOrderFront(nil)
         return true
     }
 
     @IBAction func setShortCut(sender: AnyObject) {
-        HotKeyComboPanel.sharedPanel().showSheetForHotkey(self.setActivationHotKey(), mainWindow: self.window!, target: self)
+        HotKeyComboPanel.sharedPanel().showSheetForHotkey(self.getActivationHotKey(), mainWindow: self.window!, target: self)
     }
     
     func keyComboPanelEnded(panel: HotKeyComboPanel) {
@@ -41,13 +42,13 @@ class HKCAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         self.setAppActivationKeyCombo(panel.mKeyCombo!)
         appShortcutField.stringValue = self.getActivationKeyCombo().description
         
-        if self.registerAppActivationKeystrokeWithTarget(target: NSApp.delegate!, selector: Selector("toggle")) {
+        if self.registerAppActivationKeystrokeWithTarget(target: NSApp.delegate!, selector: Selector("myfunc")) {
             self.setAppActivationKeyCombo(oldKeyCombo)
-            NSLog("reverting to old (hopefully working key combo");
+            print("reverting to old (hopefully working key combo)");
         }
     }
     
-    private func toggle() {
+    func myfunc() {
         if (window.keyWindow) {
             let alert = NSAlert()
             alert.messageText = "Hello, World"
@@ -60,14 +61,14 @@ class HKCAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     func setAppActivationKeyCombo(aCombo: HotKeyCombo) {
         appActivationKeyCombo = aCombo
-        self.setActivationHotKey().KeyCombo = self.getActivationKeyCombo()
+        self.getActivationHotKey().KeyCombo = self.getActivationKeyCombo()
         let ud = NSUserDefaults.standardUserDefaults()
 
         ud.setInteger(Int(aCombo.keyCode()), forKey: AppActivationKeyCodeKey)
         ud.setInteger(Int(aCombo.modifiers()), forKey: AppActivationModifiersKey)
     }
     
-    func setActivationHotKey() -> HotKeyCapture {
+    func getActivationHotKey() -> HotKeyCapture {
         appActivationHotKey.name = HotKeyAppToFrontName
         appActivationHotKey.KeyCombo = self.getActivationKeyCombo()
         return appActivationHotKey
@@ -81,11 +82,11 @@ class HKCAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     }
     
     func registerAppActivationKeystrokeWithTarget(target target: AnyObject, selector: Selector) -> Bool {
-        let hotkey = self.setActivationHotKey()
+        let hotkey = self.getActivationHotKey()
         hotkey.target = target
         hotkey.action = selector
-        HotKeyCaptureCenter.sharedCenter().unregisterHotKeyForName(HotKeyAppToFrontName)
-        return HotKeyCaptureCenter.sharedCenter().registerHotKey(hotkey)
+        HotKeyCaptureCenter.sharedCenter.unregisterHotKeyForName(HotKeyAppToFrontName)
+        return HotKeyCaptureCenter.sharedCenter.registerHotKey(hotkey)
     }
 
 }

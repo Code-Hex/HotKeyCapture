@@ -15,7 +15,6 @@
 		70FC2F821C7771780009ABC1 /* HotKeyBroadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F811C7771780009ABC1 /* HotKeyBroadcaster.swift */; };
 		70FC2F841C7771860009ABC1 /* HotKeyCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F831C7771860009ABC1 /* HotKeyCombo.swift */; };
 		70FC2F861C7771940009ABC1 /* HotKeyComboPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F851C7771940009ABC1 /* HotKeyComboPanel.swift */; };
-		70FC2F881C7771BD0009ABC1 /* HotKeyCodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70FC2F871C7771BD0009ABC1 /* HotKeyCodes.plist */; };
 		70FC2F8A1C780E1D0009ABC1 /* HotKeyComboPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FC2F891C780E1D0009ABC1 /* HotKeyComboPanel.xib */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +30,6 @@
 		70FC2F811C7771780009ABC1 /* HotKeyBroadcaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyBroadcaster.swift; sourceTree = "<group>"; };
 		70FC2F831C7771860009ABC1 /* HotKeyCombo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyCombo.swift; sourceTree = "<group>"; };
 		70FC2F851C7771940009ABC1 /* HotKeyComboPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyComboPanel.swift; sourceTree = "<group>"; };
-		70FC2F871C7771BD0009ABC1 /* HotKeyCodes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HotKeyCodes.plist; sourceTree = "<group>"; };
 		70FC2F891C780E1D0009ABC1 /* HotKeyComboPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotKeyComboPanel.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,7 +82,6 @@
 				70FC2F811C7771780009ABC1 /* HotKeyBroadcaster.swift */,
 				70FC2F831C7771860009ABC1 /* HotKeyCombo.swift */,
 				70FC2F851C7771940009ABC1 /* HotKeyComboPanel.swift */,
-				70FC2F871C7771BD0009ABC1 /* HotKeyCodes.plist */,
 			);
 			path = HotKeyCapture;
 			sourceTree = "<group>";
@@ -154,7 +151,6 @@
 			files = (
 				70FC2F711C776E300009ABC1 /* Assets.xcassets in Resources */,
 				70FC2F8A1C780E1D0009ABC1 /* HotKeyComboPanel.xib in Resources */,
-				70FC2F881C7771BD0009ABC1 /* HotKeyCodes.plist in Resources */,
 				70FC2F741C776E300009ABC1 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

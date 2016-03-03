@@ -16,13 +16,11 @@ class HotKeyCaptureCenter: NSObject {
     
     var mEventHandlerInstalled = false
     
-    static var _sharedHotKeyCenter: HotKeyCaptureCenter?
-    
-    class func sharedCenter() -> HotKeyCaptureCenter {
-        if _sharedHotKeyCenter == nil {
-            _sharedHotKeyCenter = HotKeyCaptureCenter()
+    class var sharedCenter: HotKeyCaptureCenter {
+        struct Shared {
+            static let instance = HotKeyCaptureCenter()
         }
-        return _sharedHotKeyCenter!
+        return Shared.instance
     }
     
     override init() {
@@ -112,7 +110,7 @@ class HotKeyCaptureCenter: NSObject {
             eventType.eventKind = OSType(kEventHotKeyPressed)
             InstallEventHandler(GetEventDispatcherTarget(), {
                 (nextHanlder, inEvent, userData) -> OSStatus in
-                return HotKeyCaptureCenter.sharedCenter().sendCarbonEvent(inEvent)
+                return HotKeyCaptureCenter.sharedCenter.sendCarbonEvent(inEvent)
             }, 1, &eventType, nil, nil)
             
             mEventHandlerInstalled = true

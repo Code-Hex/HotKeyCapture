@@ -83,8 +83,8 @@ class HotKeyComboPanel: NSWindowController {
             
             if returnCode == NSModalResponseOK {
                 hotkey!.KeyCombo = self.mKeyCombo!
-                HotKeyCaptureCenter.sharedCenter().updateHotKey(hotkey!)
-                self.currentModalDelegate!.respondsToSelector("keyComboPanelEnded:")
+                HotKeyCaptureCenter.sharedCenter.updateHotKey(hotkey!)
+                self.currentModalDelegate!.respondsToSelector("keyComboPanelEnded")
                 self.currentModalDelegate!.keyComboPanelEnded(self)
             }
         })
@@ -99,7 +99,7 @@ class HotKeyComboPanel: NSWindowController {
         
         if resultCode == NSModalResponseOK {
             hotkey.KeyCombo = self.keyCombo!
-            HotKeyCaptureCenter.sharedCenter().updateHotKey(hotkey)
+            HotKeyCaptureCenter.sharedCenter.updateHotKey(hotkey)
         }
     }
     
