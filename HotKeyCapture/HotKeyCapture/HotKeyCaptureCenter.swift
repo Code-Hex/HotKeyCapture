@@ -25,7 +25,7 @@ class HotKeyCaptureCenter {
     
     // Attention
     // if this method is success, return false
-    func registerHotKey(hotKey: HotKeyCapture) -> Bool {
+    func registerHotKey(hotKey: HotKeyVariable) -> Bool {
         var hotKeyID = EventHotKeyID()
         var carbonHotKey = EventHotKeyRef()
         
@@ -53,7 +53,7 @@ class HotKeyCaptureCenter {
         return false
     }
     
-    func unregisterHotKey(hotKey: HotKeyCapture) {
+    func unregisterHotKey(hotKey: HotKeyVariable) {
         if (mHotKeys.objectForKey(hotKey.name) != nil) {
             let carbonHotKey = hotKey.carbonHotKey
             assert(carbonHotKey != nil, "");
@@ -73,7 +73,7 @@ class HotKeyCaptureCenter {
         self.unregisterHotKey(hotKeyForName(name))
     }
     
-    func updateHotKey(hk: HotKeyCapture) {
+    func updateHotKey(hk: HotKeyVariable) {
         self.unregisterHotKey(hotKeyForName(hk.name))
         self.registerHotKey(hk)
     }
@@ -81,7 +81,7 @@ class HotKeyCaptureCenter {
     private func unregisterAllHotKeys() {
         let enu = mHotKeys.objectEnumerator()
         while let thing = enu.nextObject() {
-            self.unregisterHotKey(thing as! HotKeyCapture)
+            self.unregisterHotKey(thing as! HotKeyVariable)
         }
     }
     
@@ -93,10 +93,10 @@ class HotKeyCaptureCenter {
         }
     }
     
-    private func hotKeyForName(name: String) -> HotKeyCapture {
+    private func hotKeyForName(name: String) -> HotKeyVariable {
         return mHotKeys.objectForKey(name) != nil ?
-            mHotKeys.objectForKey(name) as! HotKeyCapture
-            : HotKeyCapture()
+            mHotKeys.objectForKey(name) as! HotKeyVariable
+            : HotKeyVariable()
     }
     
     private func updateEventHandler() {
@@ -126,7 +126,7 @@ class HotKeyCaptureCenter {
 
         assert(hotkeyID.signature == UTGetOSTypeFromString("PTHk"), "HotKeyCaptureCenter: Invalid hot key id")
         let kid = UInt(hotkeyID.id)
-        let hotkey = mHotKeyMap.objectForKey(kid) as? HotKeyCapture
+        let hotkey = mHotKeyMap.objectForKey(kid) as? HotKeyVariable
 
         switch(GetEventKind(event)) {
             case EventParamName(kEventHotKeyPressed):
@@ -138,7 +138,7 @@ class HotKeyCaptureCenter {
         return noErr
     }
     
-    private func hotkeyDown(hotkey: HotKeyCapture) {
+    private func hotkeyDown(hotkey: HotKeyVariable) {
         hotkey.invoke()
     }
     

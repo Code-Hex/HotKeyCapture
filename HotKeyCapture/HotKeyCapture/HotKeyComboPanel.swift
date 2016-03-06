@@ -68,7 +68,7 @@ class HotKeyComboPanel: NSWindowController {
         mTitleField!.stringValue = String(format: mTitleFormat, mKeyName)
     }
     
-    func showSheetForHotkey(hotkey: HotKeyCapture, mainWindow: NSWindow, target: HKCAppDelegate) {
+    func showSheetForHotkey(hotkey: HotKeyVariable, mainWindow: NSWindow, target: HKCAppDelegate) {
         self.currentModalDelegate = target
         
         self.window?.makeFirstResponder(mKeyCaster)
@@ -88,7 +88,7 @@ class HotKeyComboPanel: NSWindowController {
         })
     }
     
-    func runModalForHotKey(hotkey: HotKeyCapture) {
+    func runModalForHotKey(hotkey: HotKeyVariable) {
         
         self.keyCombo = hotkey.KeyCombo
         self.KeyBindingName = hotkey.name

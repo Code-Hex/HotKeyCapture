@@ -2,73 +2,81 @@
 //  HotKeyCapture.swift
 //  HotKeyCapture
 //
-//  Created by CodeHex on 2016/02/20.
+//  Created by CodeHex on 2016/03/07.
 //  Copyright © 2016年 CodeHex. All rights reserved.
 //
 
-import Carbon
+import Cocoa
 
 class HotKeyCapture {
-    private var _Name = ""
-    private var _Action = ""
-    private var _Target: AnyObject?
-    private var _KeyCombo = HotKeyCombo.clearKeyCombo()
-
-    var _carbonHotKey = EventHotKeyRef()
-
-    var name: String {
+    private let AppActivationKeyCodeKey = "AppActivationKeyCode"
+    private let AppActivationModifiersKey = "AppActivationModifiers"
+    
+    private var HotKeyAppToFrontName = ""
+    private var appActivationHotKey = HotKeyVariable()
+    
+    private var _appActivationKeyCombo = HotKeyCombo.clearKeyCombo()
+    
+    init(forKey: String) {
+        self.HotKeyAppToFrontName = forKey
+    }
+    
+    var appActivationKeyCombo: HotKeyCombo {
         get {
-            return _Name
-        }
-        
-        set(n) {
-            _Name = n
+            return _appActivationKeyCombo
         }
     }
     
-    var target: AnyObject {
-        get {
-            return _Target!
-        }
+    func setAppActivationKeyCombo(aCombo: HotKeyCombo) {
+        _appActivationKeyCombo = aCombo
+        self.getActivationHotKey().KeyCombo = self.getActivationKeyCombo()
+        let ud = NSUserDefaults.standardUserDefaults()
         
-        set(t) {
-            _Target = t
-        }
-        
-    }
-    var action: String {
-        get {
-            return _Action
-        }
-        
-        set(a) {
-            _Action = a
-        }
+        ud.setInteger(Int(aCombo.keyCode), forKey: AppActivationKeyCodeKey)
+        ud.setInteger(Int(aCombo.modifiers), forKey: AppActivationModifiersKey)
     }
     
-    var KeyCombo: HotKeyCombo {
-        get {
-            return _KeyCombo
-        }
-        
-        set(combo) {
-            _KeyCombo = combo
-        }
+    func getActivationHotKey() -> HotKeyVariable {
+        appActivationHotKey.name = HotKeyAppToFrontName
+        appActivationHotKey.KeyCombo = self.getActivationKeyCombo()
+        return appActivationHotKey
     }
     
-    var carbonHotKey: EventHotKeyRef {
-        get {
-            return _carbonHotKey
-        }
-        
-        set(chkey) {
-            _carbonHotKey = chkey
-        }
+    func getActivationKeyCombo() -> HotKeyCombo {
+        let ud = NSUserDefaults.standardUserDefaults()
+        _appActivationKeyCombo = HotKeyCombo(keyCode: ud.integerForKey(AppActivationKeyCodeKey), modifiers: ud.integerForKey(AppActivationModifiersKey))
+        return _appActivationKeyCombo
     }
     
-    func invoke() {
-        target.performSelector(Selector(action), withObject: self)
+    func registerMethodWithTarget(target target: AnyObject, method: String) -> Bool {
+        let hotkey = self.getActivationHotKey()
+        hotkey.target = target
+        hotkey.action = method
+        HotKeyCaptureCenter.sharedCenter.unregisterHotKeyForName(HotKeyAppToFrontName)
+        return HotKeyCaptureCenter.sharedCenter.registerHotKey(hotkey)
     }
     
+    func registerMethodWithTarget(target target: AnyObject, method: String, afterDelay: NSTimeInterval) -> Bool {
+        let hotkey = self.getActivationHotKey()
+        hotkey.target = target
+        hotkey.action = method
+        hotkey.delay = afterDelay
+        HotKeyCaptureCenter.sharedCenter.unregisterHotKeyForName(HotKeyAppToFrontName)
+        return HotKeyCaptureCenter.sharedCenter.registerHotKey(hotkey)
+    }
     
+    func registerBlock(block block: ()->Void) -> Bool {
+        let hotkey = self.getActivationHotKey()
+        hotkey.completion = block
+        HotKeyCaptureCenter.sharedCenter.unregisterHotKeyForName(HotKeyAppToFrontName)
+        return HotKeyCaptureCenter.sharedCenter.registerHotKey(hotkey)
+    }
+    
+    func registerBlock(block block: ()->Void, afterDelay: NSTimeInterval) -> Bool {
+        let hotkey = self.getActivationHotKey()
+        hotkey.completion = block
+        hotkey.delay = afterDelay
+        HotKeyCaptureCenter.sharedCenter.unregisterHotKeyForName(HotKeyAppToFrontName)
+        return HotKeyCaptureCenter.sharedCenter.registerHotKey(hotkey)
+    }
 }
