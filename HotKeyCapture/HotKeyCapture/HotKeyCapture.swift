@@ -8,56 +8,51 @@
 
 import Carbon
 
-class HotKeyCapture: NSObject {
-    var mName = ""
-    var mTarget: AnyObject?
-    var mAction = Selector()
-    var mKeyCombo: HotKeyCombo?
-    var _carbonHotKey = EventHotKeyRef()
-    
-    override init() {
-        super.init()
-        self.KeyCombo = HotKeyCombo.clearKeyCombo()
-    }
+class HotKeyCapture {
+    private var _Name = ""
+    private var _Action = ""
+    private var _Target: AnyObject?
+    private var _KeyCombo = HotKeyCombo.clearKeyCombo()
 
-    
+    var _carbonHotKey = EventHotKeyRef()
+
     var name: String {
         get {
-            return mName
+            return _Name
         }
         
         set(n) {
-            mName = n
+            _Name = n
         }
     }
     
     var target: AnyObject {
         get {
-            return mTarget!
+            return _Target!
         }
         
         set(t) {
-            mTarget = t
+            _Target = t
         }
         
     }
-    var action: Selector {
+    var action: String {
         get {
-            return mAction
+            return _Action
         }
         
         set(a) {
-            mAction = a
+            _Action = a
         }
     }
     
     var KeyCombo: HotKeyCombo {
         get {
-            return mKeyCombo!
+            return _KeyCombo
         }
         
         set(combo) {
-            mKeyCombo = combo
+            _KeyCombo = combo
         }
     }
     
@@ -72,7 +67,7 @@ class HotKeyCapture: NSObject {
     }
     
     func invoke() {
-        mTarget?.performSelector(mAction, withObject: self)
+        target.performSelector(Selector(action), withObject: self)
     }
     
     

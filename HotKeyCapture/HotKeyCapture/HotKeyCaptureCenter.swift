@@ -14,7 +14,7 @@ class HotKeyCaptureCenter {
     var mHotKeyMap = NSMutableDictionary()
     var mNextKeyID: UInt32 = 1
     
-    var mEventHandlerInstalled = false
+    var EventHandlerInstalled = false
     
     class var sharedCenter: HotKeyCaptureCenter {
         struct Shared {
@@ -23,38 +23,40 @@ class HotKeyCaptureCenter {
         return Shared.instance
     }
     
+    // Attention
+    // if this method is success, return false
     func registerHotKey(hotKey: HotKeyCapture) -> Bool {
-        var err: OSStatus?
         var hotKeyID = EventHotKeyID()
         var carbonHotKey = EventHotKeyRef()
         
         if hotKey.KeyCombo.isValidHotKeyCombo() == false {
-            return true
+            return false
         }
         
         hotKeyID.signature = UTGetOSTypeFromString("PTHk")
         hotKeyID.id = mNextKeyID
-        err = RegisterEventHotKey(UInt32(hotKey.KeyCombo.keyCode()), UInt32(hotKey.KeyCombo.modifiers()), hotKeyID, GetEventDispatcherTarget(), 0, &carbonHotKey)
+        let err = RegisterEventHotKey(UInt32(hotKey.KeyCombo.keyCode), UInt32(hotKey.KeyCombo.modifiers), hotKeyID, GetEventDispatcherTarget(), 0, &carbonHotKey)
         
         if err != 0 {
-            return false
+            return true
         }
-        
+
         let kid = UInt(mNextKeyID)
         mHotKeyMap.setObject(hotKey, forKey: kid)
         mNextKeyID++
        
         hotKey.carbonHotKey = carbonHotKey
+
         mHotKeys.setObject(hotKey, forKey: hotKey.name)
         self.updateEventHandler()
         
-        return true
+        return false
     }
     
     func unregisterHotKey(hotKey: HotKeyCapture) {
-        if (mHotKeys.objectForKey(hotKey.name) == nil) {
+        if (mHotKeys.objectForKey(hotKey.name) != nil) {
             let carbonHotKey = hotKey.carbonHotKey
-
+            assert(carbonHotKey != nil, "");
             UnregisterEventHotKey(carbonHotKey)
             mHotKeys.removeObjectForKey(hotKey.name)
             
@@ -98,7 +100,7 @@ class HotKeyCaptureCenter {
     }
     
     private func updateEventHandler() {
-        if mHotKeyMap.count == 0 && mEventHandlerInstalled == false {
+        if EventHandlerInstalled == false {
             var eventType = EventTypeSpec()
             eventType.eventClass = OSType(kEventClassKeyboard)
             eventType.eventKind = OSType(kEventHotKeyPressed)
@@ -107,13 +109,12 @@ class HotKeyCaptureCenter {
                 return HotKeyCaptureCenter.sharedCenter.sendCarbonEvent(inEvent)
             }, 1, &eventType, nil, nil)
             
-            mEventHandlerInstalled = true
+            EventHandlerInstalled = true
         }
     }
     
     
     private func sendCarbonEvent(event: EventRef) -> OSStatus {
-        var hotkey: HotKeyCapture?
         
         assert(Int(GetEventClass(event)) == kEventClassKeyboard, "HotKeyCaptureCenter: Unknown event class")
         var hotkeyID = EventHotKeyID()
@@ -122,10 +123,10 @@ class HotKeyCaptureCenter {
         if err != 0 {
             return err
         }
-        
+
         assert(hotkeyID.signature == UTGetOSTypeFromString("PTHk"), "HotKeyCaptureCenter: Invalid hot key id")
         let kid = UInt(hotkeyID.id)
-        hotkey = mHotKeyMap.objectForKey(kid) as? HotKeyCapture
+        let hotkey = mHotKeyMap.objectForKey(kid) as? HotKeyCapture
 
         switch(GetEventKind(event)) {
             case EventParamName(kEventHotKeyPressed):

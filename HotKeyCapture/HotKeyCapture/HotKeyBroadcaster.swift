@@ -14,7 +14,7 @@ let HotKeyBroadcasterEvent = "HotKeyBroadcasterEvent"
 class HotKeyBroadcaster: NSButton {
     
     func bcastKeyCode(keyCode: Int, modifiers: Int) {
-        let keyCombo = HotKeyCombo.keyComboWithKeyCode(keyCode, modifiers: modifiers)
+        let keyCombo = HotKeyCombo.keyComboWithKeyCode(keyCode: keyCode, modifiers: modifiers)
         let userinfo = NSDictionary(objects: [keyCombo], forKeys: ["keyCombo"])
         NSNotificationCenter.defaultCenter().postNotificationName(HotKeyBroadcasterEvent, object: self, userInfo: userinfo as [NSObject:AnyObject])
     }

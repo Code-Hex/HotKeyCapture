@@ -9,8 +9,6 @@
 import Cocoa
 
 class HotKeyComboPanel: NSWindowController {
-
-    static private var _sharedKeyComboPanel: HotKeyComboPanel? = nil
     
     var mKeyName = "empty"
     var mTitleFormat = "empty"
@@ -30,7 +28,7 @@ class HotKeyComboPanel: NSWindowController {
         
         set(combo) {
             mKeyCombo = combo == nil ? HotKeyCombo.clearKeyCombo() : combo!
-            self._refreshContents()
+            self.refreshContents()
         }
     }
     
@@ -41,15 +39,15 @@ class HotKeyComboPanel: NSWindowController {
         
         set(n) {
             mKeyName = n == nil ? "empty" : n!
-            self._refreshContents()
+            self.refreshContents()
         }
     }
     
-    class func sharedPanel() -> HotKeyComboPanel {
-        if _sharedKeyComboPanel == nil {
-            _sharedKeyComboPanel = HotKeyComboPanel(windowNibName: "HotKeyComboPanel")
+    class var sharedPanel: HotKeyComboPanel {
+        struct Shared {
+            static let instance = HotKeyComboPanel(windowNibName: "HotKeyComboPanel")
         }
-        return _sharedKeyComboPanel!
+        return Shared.instance
     }
 
     override init(window: NSWindow!) {
@@ -65,25 +63,25 @@ class HotKeyComboPanel: NSWindowController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "noteKeyBroadcast:", name: HotKeyBroadcasterEvent, object: mKeyCaster)
     }
     
-    private func _refreshContents() {
+    private func refreshContents() {
         mComboField!.stringValue = mKeyCombo!.description
         mTitleField!.stringValue = String(format: mTitleFormat, mKeyName)
     }
     
-    func showSheetForHotkey(hotkey: HotKeyCapture?, mainWindow: NSWindow, target: HKCAppDelegate) {
+    func showSheetForHotkey(hotkey: HotKeyCapture, mainWindow: NSWindow, target: HKCAppDelegate) {
         self.currentModalDelegate = target
         
         self.window?.makeFirstResponder(mKeyCaster)
-        self.keyCombo = hotkey?.KeyCombo
-        self.KeyBindingName = hotkey?.name 
+        self.keyCombo = hotkey.KeyCombo
+        self.KeyBindingName = hotkey.name
         mWindow = mainWindow
         mainWindow.beginSheet(self.window!, completionHandler: {
             returnCode in
             self.window!.close()
             
             if returnCode == NSModalResponseOK {
-                hotkey!.KeyCombo = self.mKeyCombo!
-                HotKeyCaptureCenter.sharedCenter.updateHotKey(hotkey!)
+                hotkey.KeyCombo = self.mKeyCombo!
+                HotKeyCaptureCenter.sharedCenter.updateHotKey(hotkey)
                 self.currentModalDelegate!.respondsToSelector("keyComboPanelEnded")
                 self.currentModalDelegate!.keyComboPanelEnded(self)
             }
