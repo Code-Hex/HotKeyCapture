@@ -1,6 +1,6 @@
 # HotKeyCapture
 This is a sandboxed of custom global hotkeys in Swift using HotKeyCapture
-## About
+## What's this??
 HotKeyCapture is an easy to use Cocoa class for registering an application to respond to system key events, or "hotkeys".  
 A global hotkey is a key combination that always executes a specific action, regardless of which app is frontmost. For example, the Mac OS X default hotkey of "command-space" shows the Spotlight search bar, even if Finder is not the frontmost application.  
 ##Usage
@@ -17,7 +17,7 @@ and run
 pod install
 ```
 If you don't use cocoapods, you can prepare these files. 
-- HotKeyCapture.xcodeproj,
+- HotKeyCapture.xcodeproj
 - HotKeyCapture
   - HotKeyCapture.h
   - HotKeyCapture.swift
@@ -26,7 +26,7 @@ If you don't use cocoapods, you can prepare these files.
   - HotKeyVariable.swift
   - Info.plist // Maybe unnecessary...  
 
-and these files into your project.  
+These files into your project.  
 ##Reference
 ###class HotKeyCapture
 ```
