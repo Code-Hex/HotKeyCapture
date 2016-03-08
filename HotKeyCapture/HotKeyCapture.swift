@@ -8,7 +8,8 @@
 
 import Cocoa
 
-class HotKeyCapture {
+public class HotKeyCapture {
+    
     private let AppActivationKeyCodeKey = "AppActivationKeyCode"
     private let AppActivationModifiersKey = "AppActivationModifiers"
     
@@ -17,17 +18,17 @@ class HotKeyCapture {
     
     private var _appActivationKeyCombo = HotKeyCombo.clearKeyCombo()
     
-    init(forKey: String) {
+    public init(forKey: String) {
         self.HotKeyAppToFrontName = forKey
     }
     
-    var appActivationKeyCombo: HotKeyCombo {
+    public var appActivationKeyCombo: HotKeyCombo {
         get {
             return _appActivationKeyCombo
         }
     }
     
-    func setAppActivationKeyCombo(aCombo: HotKeyCombo) {
+    public func setAppActivationKeyCombo(aCombo: HotKeyCombo) {
         _appActivationKeyCombo = aCombo
         self.getActivationHotKey().KeyCombo = self.getActivationKeyCombo()
         let ud = NSUserDefaults.standardUserDefaults()
@@ -36,19 +37,19 @@ class HotKeyCapture {
         ud.setInteger(Int(aCombo.modifiers), forKey: AppActivationModifiersKey)
     }
     
-    func getActivationHotKey() -> HotKeyVariable {
+    public func getActivationHotKey() -> HotKeyVariable {
         appActivationHotKey.name = HotKeyAppToFrontName
         appActivationHotKey.KeyCombo = self.getActivationKeyCombo()
         return appActivationHotKey
     }
     
-    func getActivationKeyCombo() -> HotKeyCombo {
+    public func getActivationKeyCombo() -> HotKeyCombo {
         let ud = NSUserDefaults.standardUserDefaults()
         _appActivationKeyCombo = HotKeyCombo(keyCode: ud.integerForKey(AppActivationKeyCodeKey), modifiers: ud.integerForKey(AppActivationModifiersKey))
         return _appActivationKeyCombo
     }
     
-    func registerMethodWithTarget(target target: AnyObject, method: String) -> Bool {
+    public func registerMethodWithTarget(target target: AnyObject, method: String) -> Bool {
         let hotkey = self.getActivationHotKey()
         hotkey.target = target
         hotkey.action = method
@@ -56,7 +57,7 @@ class HotKeyCapture {
         return HotKeyCaptureCenter.sharedCenter.registerHotKey(hotkey)
     }
     
-    func registerMethodWithTarget(target target: AnyObject, method: String, afterDelay: NSTimeInterval) -> Bool {
+    public func registerMethodWithTarget(target target: AnyObject, method: String, afterDelay: NSTimeInterval) -> Bool {
         let hotkey = self.getActivationHotKey()
         hotkey.target = target
         hotkey.action = method
@@ -65,14 +66,14 @@ class HotKeyCapture {
         return HotKeyCaptureCenter.sharedCenter.registerHotKey(hotkey)
     }
     
-    func registerBlock(block block: ()->Void) -> Bool {
+    public func registerBlock(block block: ()->Void) -> Bool {
         let hotkey = self.getActivationHotKey()
         hotkey.completion = block
         HotKeyCaptureCenter.sharedCenter.unregisterHotKeyForName(HotKeyAppToFrontName)
         return HotKeyCaptureCenter.sharedCenter.registerHotKey(hotkey)
     }
     
-    func registerBlock(block block: ()->Void, afterDelay: NSTimeInterval) -> Bool {
+    public func registerBlock(block block: ()->Void, afterDelay: NSTimeInterval) -> Bool {
         let hotkey = self.getActivationHotKey()
         hotkey.completion = block
         hotkey.delay = afterDelay

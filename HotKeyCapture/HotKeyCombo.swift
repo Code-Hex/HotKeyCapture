@@ -8,50 +8,51 @@
 
 import Carbon
 
-class HotKeyCombo {
+public class HotKeyCombo {
     
-    var mKeyCode = 0
-    var mModifiers = 0
-    var description: String {
+    private var mKeyCode = 0
+    private var mModifiers = 0
+    
+    public var description: String {
         get {
             return self.isValidHotKeyCombo() ? HotKeyCombo.stringForCombo(modifiers: self.modifiers, keyCode: self.keyCode) : "(None)"
         }
     }
     
-    var keyCode: Int {
+    public var keyCode: Int {
         get {
             return mKeyCode
         }
     }
     
-    var modifiers: Int {
+    public var modifiers: Int {
         get {
             return mModifiers
         }
     }
     
-    init(keyCode: Int, modifiers: Int) {
+    public init(keyCode: Int, modifiers: Int) {
         self.mKeyCode = keyCode
         self.mModifiers = modifiers
     }
     
-    func isValidHotKeyCombo() -> Bool {
+    public func isValidHotKeyCombo() -> Bool {
         return mKeyCode >= 0 && mModifiers > 0
     }
     
-    func isClearCombo() -> Bool {
+    public func isClearCombo() -> Bool {
         return mKeyCode == -1 && mModifiers == -1
     }
     
-    class func clearKeyCombo() -> HotKeyCombo {
+    public class func clearKeyCombo() -> HotKeyCombo {
         return self.keyComboWithKeyCode(keyCode: -1, modifiers: -1)
     }
     
-    class func keyComboWithKeyCode(keyCode keyCode: Int, modifiers: Int) -> HotKeyCombo {
+    public class func keyComboWithKeyCode(keyCode keyCode: Int, modifiers: Int) -> HotKeyCombo {
         return HotKeyCombo(keyCode: keyCode, modifiers: modifiers)
     }
     
-    class func stringForCombo(modifiers modifiers: Int, keyCode: Int) -> String {
+    public class func stringForCombo(modifiers modifiers: Int, keyCode: Int) -> String {
         
         let modToChar = [
             "⌘" : cmdKey,
@@ -74,7 +75,7 @@ class HotKeyCombo {
         return str + (dic[key] != nil ? String(dic[key]!) : String(format: "%X", keyCode))
     }
     
-    class var keyCodesDictionary: [String:String] {
+    public class var keyCodesDictionary: [String:String] {
         get {
             return [
                 "0":"A",

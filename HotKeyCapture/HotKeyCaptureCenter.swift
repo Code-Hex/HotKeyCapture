@@ -8,15 +8,15 @@
 
 import Carbon
 
-class HotKeyCaptureCenter {
+public class HotKeyCaptureCenter {
     
-    var mHotKeys = NSMutableDictionary()
-    var mHotKeyMap = NSMutableDictionary()
-    var mNextKeyID: UInt32 = 1
+    private var mHotKeys = NSMutableDictionary()
+    private var mHotKeyMap = NSMutableDictionary()
+    private var mNextKeyID: UInt32 = 1
     
-    var EventHandlerInstalled = false
+    private var EventHandlerInstalled = false
     
-    class var sharedCenter: HotKeyCaptureCenter {
+    public class var sharedCenter: HotKeyCaptureCenter {
         struct Shared {
             static let instance = HotKeyCaptureCenter()
         }
@@ -25,7 +25,7 @@ class HotKeyCaptureCenter {
     
     // Attention
     // if this method is success, return false
-    func registerHotKey(hotKey: HotKeyVariable) -> Bool {
+    public func registerHotKey(hotKey: HotKeyVariable) -> Bool {
         var hotKeyID = EventHotKeyID()
         var carbonHotKey = EventHotKeyRef()
         
@@ -53,7 +53,7 @@ class HotKeyCaptureCenter {
         return false
     }
     
-    func unregisterHotKey(hotKey: HotKeyVariable) {
+    public func unregisterHotKey(hotKey: HotKeyVariable) {
         if (mHotKeys.objectForKey(hotKey.name) != nil) {
             let carbonHotKey = hotKey.carbonHotKey
             assert(carbonHotKey != nil, "");
@@ -69,16 +69,16 @@ class HotKeyCaptureCenter {
         }
     }
     
-    func unregisterHotKeyForName(name: String) {
+    public func unregisterHotKeyForName(name: String) {
         self.unregisterHotKey(hotKeyForName(name))
     }
     
-    func updateHotKey(hk: HotKeyVariable) {
+    public func updateHotKey(hk: HotKeyVariable) {
         self.unregisterHotKey(hotKeyForName(hk.name))
         self.registerHotKey(hk)
     }
     
-    private func unregisterAllHotKeys() {
+    public func unregisterAllHotKeys() {
         let enu = mHotKeys.objectEnumerator()
         while let thing = enu.nextObject() {
             self.unregisterHotKey(thing as! HotKeyVariable)

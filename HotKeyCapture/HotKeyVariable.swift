@@ -8,7 +8,7 @@
 
 import Carbon
 
-class HotKeyVariable {
+public class HotKeyVariable {
     private var _Name = ""
     private var _Action = ""
     private var _delay: NSTimeInterval = 0
@@ -16,9 +16,9 @@ class HotKeyVariable {
     private var _KeyCombo = HotKeyCombo.clearKeyCombo()
     private var _carbonHotKey = EventHotKeyRef()
     
-    var completion: () -> Void = {}
+    public var completion: () -> Void = {}
 
-    var name: String {
+    public var name: String {
         get {
             return _Name
         }
@@ -28,7 +28,7 @@ class HotKeyVariable {
         }
     }
     
-    var target: AnyObject {
+    public var target: AnyObject {
         get {
             return _Target!
         }
@@ -38,7 +38,7 @@ class HotKeyVariable {
         }
         
     }
-    var action: String {
+    public var action: String {
         get {
             return _Action
         }
@@ -48,7 +48,7 @@ class HotKeyVariable {
         }
     }
     
-    var KeyCombo: HotKeyCombo {
+    public var KeyCombo: HotKeyCombo {
         get {
             return _KeyCombo
         }
@@ -58,7 +58,7 @@ class HotKeyVariable {
         }
     }
     
-    var carbonHotKey: EventHotKeyRef {
+    public var carbonHotKey: EventHotKeyRef {
         get {
             return _carbonHotKey
         }
@@ -68,7 +68,7 @@ class HotKeyVariable {
         }
     }
     
-    var delay: NSTimeInterval {
+    public var delay: NSTimeInterval {
         get {
             return _delay
         }
@@ -78,7 +78,7 @@ class HotKeyVariable {
         }
     }
     
-    func invoke() {
+    public func invoke() {
         if action == "" {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay)), dispatch_get_main_queue(), completion)
         } else {

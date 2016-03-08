@@ -7,36 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7079E54B1C8C9A5D0067ACAD /* HotKeyCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079E54A1C8C9A5D0067ACAD /* HotKeyCapture.swift */; };
-		7079E54D1C8C9F0B0067ACAD /* HotKeyBroadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079E54C1C8C9F0B0067ACAD /* HotKeyBroadcaster.swift */; };
-		7083AC041C8E7E930046AF0D /* HotKeyComboPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AC031C8E7E930046AF0D /* HotKeyComboPanel.swift */; };
-		70FC2F6F1C776E300009ABC1 /* HKCAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F6E1C776E300009ABC1 /* HKCAppDelegate.swift */; };
-		70FC2F711C776E300009ABC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70FC2F701C776E300009ABC1 /* Assets.xcassets */; };
-		70FC2F741C776E300009ABC1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FC2F721C776E300009ABC1 /* MainMenu.xib */; };
-		70FC2F7D1C776EEC0009ABC1 /* HotKeyVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F7C1C776EEC0009ABC1 /* HotKeyVariable.swift */; };
-		70FC2F801C7771600009ABC1 /* HotKeyCaptureCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F7F1C7771600009ABC1 /* HotKeyCaptureCenter.swift */; };
-		70FC2F841C7771860009ABC1 /* HotKeyCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F831C7771860009ABC1 /* HotKeyCombo.swift */; };
-		70FC2F8A1C780E1D0009ABC1 /* HotKeyComboPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FC2F891C780E1D0009ABC1 /* HotKeyComboPanel.xib */; };
+		7083AC451C8E94010046AF0D /* HotKeyCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = 7083AC441C8E94010046AF0D /* HotKeyCapture.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7083AC4F1C8E94560046AF0D /* HotKeyCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AC4C1C8E94560046AF0D /* HotKeyCapture.swift */; };
+		7083AC501C8E94560046AF0D /* HotKeyCaptureCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AC4D1C8E94560046AF0D /* HotKeyCaptureCenter.swift */; };
+		7083AC511C8E94560046AF0D /* HotKeyCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AC4E1C8E94560046AF0D /* HotKeyCombo.swift */; };
+		7083AC531C8E945C0046AF0D /* HotKeyVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AC521C8E945C0046AF0D /* HotKeyVariable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7079E54A1C8C9A5D0067ACAD /* HotKeyCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyCapture.swift; sourceTree = "<group>"; };
-		7079E54C1C8C9F0B0067ACAD /* HotKeyBroadcaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyBroadcaster.swift; sourceTree = "<group>"; };
-		7083AC031C8E7E930046AF0D /* HotKeyComboPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyComboPanel.swift; sourceTree = "<group>"; };
-		70FC2F6B1C776E300009ABC1 /* HotKeyCapture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotKeyCapture.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		70FC2F6E1C776E300009ABC1 /* HKCAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKCAppDelegate.swift; sourceTree = "<group>"; };
-		70FC2F701C776E300009ABC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		70FC2F731C776E300009ABC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		70FC2F751C776E300009ABC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		70FC2F7C1C776EEC0009ABC1 /* HotKeyVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyVariable.swift; sourceTree = "<group>"; };
-		70FC2F7E1C7771390009ABC1 /* HotKeyCapture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HotKeyCapture.entitlements; sourceTree = "<group>"; };
-		70FC2F7F1C7771600009ABC1 /* HotKeyCaptureCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyCaptureCenter.swift; sourceTree = "<group>"; };
-		70FC2F831C7771860009ABC1 /* HotKeyCombo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyCombo.swift; sourceTree = "<group>"; };
-		70FC2F891C780E1D0009ABC1 /* HotKeyComboPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotKeyComboPanel.xib; sourceTree = "<group>"; };
+		7083AC411C8E94010046AF0D /* HotKeyCapture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HotKeyCapture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7083AC441C8E94010046AF0D /* HotKeyCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotKeyCapture.h; sourceTree = "<group>"; };
+		7083AC461C8E94010046AF0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7083AC4C1C8E94560046AF0D /* HotKeyCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyCapture.swift; sourceTree = "<group>"; };
+		7083AC4D1C8E94560046AF0D /* HotKeyCaptureCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyCaptureCenter.swift; sourceTree = "<group>"; };
+		7083AC4E1C8E94560046AF0D /* HotKeyCombo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyCombo.swift; sourceTree = "<group>"; };
+		7083AC521C8E945C0046AF0D /* HotKeyVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyVariable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		70FC2F681C776E300009ABC1 /* Frameworks */ = {
+		7083AC3D1C8E94010046AF0D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,59 +35,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		70FC2F621C776E300009ABC1 = {
+		7083AC371C8E94010046AF0D = {
 			isa = PBXGroup;
 			children = (
-				70FC2F6D1C776E300009ABC1 /* HotKeyCapture */,
-				70FC2F6C1C776E300009ABC1 /* Products */,
+				7083AC431C8E94010046AF0D /* HotKeyCapture */,
+				7083AC421C8E94010046AF0D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		70FC2F6C1C776E300009ABC1 /* Products */ = {
+		7083AC421C8E94010046AF0D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				70FC2F6B1C776E300009ABC1 /* HotKeyCapture.app */,
+				7083AC411C8E94010046AF0D /* HotKeyCapture.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		70FC2F6D1C776E300009ABC1 /* HotKeyCapture */ = {
+		7083AC431C8E94010046AF0D /* HotKeyCapture */ = {
 			isa = PBXGroup;
 			children = (
-				70FC2F7E1C7771390009ABC1 /* HotKeyCapture.entitlements */,
-				70FC2F6E1C776E300009ABC1 /* HKCAppDelegate.swift */,
-				7079E54C1C8C9F0B0067ACAD /* HotKeyBroadcaster.swift */,
-				7083AC031C8E7E930046AF0D /* HotKeyComboPanel.swift */,
-				70FC2F7B1C776EDC0009ABC1 /* HotKeyCapture */,
-				70FC2F701C776E300009ABC1 /* Assets.xcassets */,
-				70FC2F721C776E300009ABC1 /* MainMenu.xib */,
-				70FC2F891C780E1D0009ABC1 /* HotKeyComboPanel.xib */,
-				70FC2F751C776E300009ABC1 /* Info.plist */,
-			);
-			path = HotKeyCapture;
-			sourceTree = "<group>";
-		};
-		70FC2F7B1C776EDC0009ABC1 /* HotKeyCapture */ = {
-			isa = PBXGroup;
-			children = (
-				7079E54A1C8C9A5D0067ACAD /* HotKeyCapture.swift */,
-				70FC2F7C1C776EEC0009ABC1 /* HotKeyVariable.swift */,
-				70FC2F7F1C7771600009ABC1 /* HotKeyCaptureCenter.swift */,
-				70FC2F831C7771860009ABC1 /* HotKeyCombo.swift */,
+				7083AC441C8E94010046AF0D /* HotKeyCapture.h */,
+				7083AC4C1C8E94560046AF0D /* HotKeyCapture.swift */,
+				7083AC4D1C8E94560046AF0D /* HotKeyCaptureCenter.swift */,
+				7083AC4E1C8E94560046AF0D /* HotKeyCombo.swift */,
+				7083AC521C8E945C0046AF0D /* HotKeyVariable.swift */,
+				7083AC461C8E94010046AF0D /* Info.plist */,
 			);
 			path = HotKeyCapture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		7083AC3E1C8E94010046AF0D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7083AC451C8E94010046AF0D /* HotKeyCapture.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		70FC2F6A1C776E300009ABC1 /* HotKeyCapture */ = {
+		7083AC401C8E94010046AF0D /* HotKeyCapture */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 70FC2F781C776E300009ABC1 /* Build configuration list for PBXNativeTarget "HotKeyCapture" */;
+			buildConfigurationList = 7083AC491C8E94010046AF0D /* Build configuration list for PBXNativeTarget "HotKeyCapture" */;
 			buildPhases = (
-				70FC2F671C776E300009ABC1 /* Sources */,
-				70FC2F681C776E300009ABC1 /* Frameworks */,
-				70FC2F691C776E300009ABC1 /* Resources */,
+				7083AC3C1C8E94010046AF0D /* Sources */,
+				7083AC3D1C8E94010046AF0D /* Frameworks */,
+				7083AC3E1C8E94010046AF0D /* Headers */,
+				7083AC3F1C8E94010046AF0D /* Resources */,
 			);
 			buildRules = (
 			);
@@ -106,30 +93,25 @@
 			);
 			name = HotKeyCapture;
 			productName = HotKeyCapture;
-			productReference = 70FC2F6B1C776E300009ABC1 /* HotKeyCapture.app */;
-			productType = "com.apple.product-type.application";
+			productReference = 7083AC411C8E94010046AF0D /* HotKeyCapture.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		70FC2F631C776E300009ABC1 /* Project object */ = {
+		7083AC381C8E94010046AF0D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = CodeHex;
 				TargetAttributes = {
-					70FC2F6A1C776E300009ABC1 = {
+					7083AC401C8E94010046AF0D = {
 						CreatedOnToolsVersion = 7.1.1;
-						SystemCapabilities = {
-							com.apple.Sandbox = {
-								enabled = 1;
-							};
-						};
 					};
 				};
 			};
-			buildConfigurationList = 70FC2F661C776E300009ABC1 /* Build configuration list for PBXProject "HotKeyCapture" */;
+			buildConfigurationList = 7083AC3B1C8E94010046AF0D /* Build configuration list for PBXProject "HotKeyCapture" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -137,59 +119,42 @@
 				en,
 				Base,
 			);
-			mainGroup = 70FC2F621C776E300009ABC1;
-			productRefGroup = 70FC2F6C1C776E300009ABC1 /* Products */;
+			mainGroup = 7083AC371C8E94010046AF0D;
+			productRefGroup = 7083AC421C8E94010046AF0D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				70FC2F6A1C776E300009ABC1 /* HotKeyCapture */,
+				7083AC401C8E94010046AF0D /* HotKeyCapture */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		70FC2F691C776E300009ABC1 /* Resources */ = {
+		7083AC3F1C8E94010046AF0D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70FC2F711C776E300009ABC1 /* Assets.xcassets in Resources */,
-				70FC2F8A1C780E1D0009ABC1 /* HotKeyComboPanel.xib in Resources */,
-				70FC2F741C776E300009ABC1 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		70FC2F671C776E300009ABC1 /* Sources */ = {
+		7083AC3C1C8E94010046AF0D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7079E54D1C8C9F0B0067ACAD /* HotKeyBroadcaster.swift in Sources */,
-				70FC2F7D1C776EEC0009ABC1 /* HotKeyVariable.swift in Sources */,
-				7079E54B1C8C9A5D0067ACAD /* HotKeyCapture.swift in Sources */,
-				70FC2F841C7771860009ABC1 /* HotKeyCombo.swift in Sources */,
-				7083AC041C8E7E930046AF0D /* HotKeyComboPanel.swift in Sources */,
-				70FC2F801C7771600009ABC1 /* HotKeyCaptureCenter.swift in Sources */,
-				70FC2F6F1C776E300009ABC1 /* HKCAppDelegate.swift in Sources */,
+				7083AC511C8E94560046AF0D /* HotKeyCombo.swift in Sources */,
+				7083AC531C8E945C0046AF0D /* HotKeyVariable.swift in Sources */,
+				7083AC4F1C8E94560046AF0D /* HotKeyCapture.swift in Sources */,
+				7083AC501C8E94560046AF0D /* HotKeyCaptureCenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		70FC2F721C776E300009ABC1 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				70FC2F731C776E300009ABC1 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		70FC2F761C776E300009ABC1 /* Debug */ = {
+		7083AC471C8E94010046AF0D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -208,6 +173,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -225,15 +191,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		70FC2F771C776E300009ABC1 /* Release */ = {
+		7083AC481C8E94010046AF0D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -252,6 +220,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -263,64 +232,75 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		70FC2F791C776E300009ABC1 /* Debug */ = {
+		7083AC4A1C8E94010046AF0D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = HotKeyCapture/HotKeyCapture.entitlements;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = HotKeyCapture/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_SWIFT_FLAGS = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CodeHex.HotKeyCapture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		70FC2F7A1C776E300009ABC1 /* Release */ = {
+		7083AC4B1C8E94010046AF0D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = HotKeyCapture/HotKeyCapture.entitlements;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = HotKeyCapture/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_SWIFT_FLAGS = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CodeHex.HotKeyCapture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		70FC2F661C776E300009ABC1 /* Build configuration list for PBXProject "HotKeyCapture" */ = {
+		7083AC3B1C8E94010046AF0D /* Build configuration list for PBXProject "HotKeyCapture" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				70FC2F761C776E300009ABC1 /* Debug */,
-				70FC2F771C776E300009ABC1 /* Release */,
+				7083AC471C8E94010046AF0D /* Debug */,
+				7083AC481C8E94010046AF0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		70FC2F781C776E300009ABC1 /* Build configuration list for PBXNativeTarget "HotKeyCapture" */ = {
+		7083AC491C8E94010046AF0D /* Build configuration list for PBXNativeTarget "HotKeyCapture" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				70FC2F791C776E300009ABC1 /* Debug */,
-				70FC2F7A1C776E300009ABC1 /* Release */,
+				7083AC4A1C8E94010046AF0D /* Debug */,
+				7083AC4B1C8E94010046AF0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 70FC2F631C776E300009ABC1 /* Project object */;
+	rootObject = 7083AC381C8E94010046AF0D /* Project object */;
 }
