@@ -9,19 +9,20 @@
 /* Begin PBXBuildFile section */
 		7079E54B1C8C9A5D0067ACAD /* HotKeyCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079E54A1C8C9A5D0067ACAD /* HotKeyCapture.swift */; };
 		7079E54D1C8C9F0B0067ACAD /* HotKeyBroadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079E54C1C8C9F0B0067ACAD /* HotKeyBroadcaster.swift */; };
+		7083AC041C8E7E930046AF0D /* HotKeyComboPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AC031C8E7E930046AF0D /* HotKeyComboPanel.swift */; };
 		70FC2F6F1C776E300009ABC1 /* HKCAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F6E1C776E300009ABC1 /* HKCAppDelegate.swift */; };
 		70FC2F711C776E300009ABC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70FC2F701C776E300009ABC1 /* Assets.xcassets */; };
 		70FC2F741C776E300009ABC1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FC2F721C776E300009ABC1 /* MainMenu.xib */; };
 		70FC2F7D1C776EEC0009ABC1 /* HotKeyVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F7C1C776EEC0009ABC1 /* HotKeyVariable.swift */; };
 		70FC2F801C7771600009ABC1 /* HotKeyCaptureCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F7F1C7771600009ABC1 /* HotKeyCaptureCenter.swift */; };
 		70FC2F841C7771860009ABC1 /* HotKeyCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F831C7771860009ABC1 /* HotKeyCombo.swift */; };
-		70FC2F861C7771940009ABC1 /* HotKeyComboPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC2F851C7771940009ABC1 /* HotKeyComboPanel.swift */; };
 		70FC2F8A1C780E1D0009ABC1 /* HotKeyComboPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FC2F891C780E1D0009ABC1 /* HotKeyComboPanel.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7079E54A1C8C9A5D0067ACAD /* HotKeyCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyCapture.swift; sourceTree = "<group>"; };
 		7079E54C1C8C9F0B0067ACAD /* HotKeyBroadcaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyBroadcaster.swift; sourceTree = "<group>"; };
+		7083AC031C8E7E930046AF0D /* HotKeyComboPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyComboPanel.swift; sourceTree = "<group>"; };
 		70FC2F6B1C776E300009ABC1 /* HotKeyCapture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotKeyCapture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70FC2F6E1C776E300009ABC1 /* HKCAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKCAppDelegate.swift; sourceTree = "<group>"; };
 		70FC2F701C776E300009ABC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -31,7 +32,6 @@
 		70FC2F7E1C7771390009ABC1 /* HotKeyCapture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HotKeyCapture.entitlements; sourceTree = "<group>"; };
 		70FC2F7F1C7771600009ABC1 /* HotKeyCaptureCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyCaptureCenter.swift; sourceTree = "<group>"; };
 		70FC2F831C7771860009ABC1 /* HotKeyCombo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyCombo.swift; sourceTree = "<group>"; };
-		70FC2F851C7771940009ABC1 /* HotKeyComboPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyComboPanel.swift; sourceTree = "<group>"; };
 		70FC2F891C780E1D0009ABC1 /* HotKeyComboPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotKeyComboPanel.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +68,7 @@
 				70FC2F7E1C7771390009ABC1 /* HotKeyCapture.entitlements */,
 				70FC2F6E1C776E300009ABC1 /* HKCAppDelegate.swift */,
 				7079E54C1C8C9F0B0067ACAD /* HotKeyBroadcaster.swift */,
+				7083AC031C8E7E930046AF0D /* HotKeyComboPanel.swift */,
 				70FC2F7B1C776EDC0009ABC1 /* HotKeyCapture */,
 				70FC2F701C776E300009ABC1 /* Assets.xcassets */,
 				70FC2F721C776E300009ABC1 /* MainMenu.xib */,
@@ -84,7 +85,6 @@
 				70FC2F7C1C776EEC0009ABC1 /* HotKeyVariable.swift */,
 				70FC2F7F1C7771600009ABC1 /* HotKeyCaptureCenter.swift */,
 				70FC2F831C7771860009ABC1 /* HotKeyCombo.swift */,
-				70FC2F851C7771940009ABC1 /* HotKeyComboPanel.swift */,
 			);
 			path = HotKeyCapture;
 			sourceTree = "<group>";
@@ -166,10 +166,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7079E54D1C8C9F0B0067ACAD /* HotKeyBroadcaster.swift in Sources */,
-				70FC2F861C7771940009ABC1 /* HotKeyComboPanel.swift in Sources */,
 				70FC2F7D1C776EEC0009ABC1 /* HotKeyVariable.swift in Sources */,
 				7079E54B1C8C9A5D0067ACAD /* HotKeyCapture.swift in Sources */,
 				70FC2F841C7771860009ABC1 /* HotKeyCombo.swift in Sources */,
+				7083AC041C8E7E930046AF0D /* HotKeyComboPanel.swift in Sources */,
 				70FC2F801C7771600009ABC1 /* HotKeyCaptureCenter.swift in Sources */,
 				70FC2F6F1C776E300009ABC1 /* HKCAppDelegate.swift in Sources */,
 			);
