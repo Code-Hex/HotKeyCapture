@@ -27,7 +27,7 @@ If you don't use cocoapods, you can prepare these files.
   - Info.plist // Maybe unnecessary...  
 
 and these files into your project.  
-
+##Reference
 ###class HotKeyCapture
 ```
 var appActivationKeyCombo: HotKeyCombo { get }
