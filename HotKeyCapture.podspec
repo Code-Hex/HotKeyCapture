@@ -7,5 +7,5 @@ Pod::Spec.new do |s|
   s.author       = { "CodeHex" => "x00.x7f@gmail.com" }
   s.source       = { :git => "https://github.com/Code-Hex/HotKeyCapture.git", :tag => s.version }
   s.platform     = :osx, '10.10'
-  s.source_files = '#{s.name}/#{s.name}/*.{h,swift}'
+  s.source_files = '#{s.name}/*.{h,swift}'
 end
