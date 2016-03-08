@@ -116,3 +116,5 @@ Return keyCodesDictionary. see source code.
 var description: String { get }
 ```
 Return convert keyCode to string + modifiers to string. like "⌘⌥K" etc
+##Licence
+[MIT](https://github.com/Code-Hex/HotKeyCapture/blob/master/LICENSE) license.
