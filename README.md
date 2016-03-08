@@ -7,34 +7,33 @@ A global hotkey is a key combination that always executes a specific action, reg
 ###class HotKeyCapture
 ```
 var appActivationKeyCombo: HotKeyCombo { get }
-
-Discussion
-Get activation HotKeyCombo instance.
-
+```
+Discussion  
+Get activation HotKeyCombo instance.  
+```
 func setAppActivationKeyCombo(aCombo: HotKeyCombo)
-
-Discussion
-if want to active to HotKeyCombo instance, use this.
-
+```
+Discussion  
+if want to active to HotKeyCombo instance, use this.  
+```
 func getActivationHotKey() -> HotKeyVariable
-
-Discussion
-Get activation HotKeyVariable instance.
-
+```
+Discussion  
+Get activation HotKeyVariable instance.  
+```
 func getActivationKeyCombo() -> HotKeyCombo
-
-Discussion
-Get HotKeyVariable instance while set some HotKeyVariable instance variable
-
+```
+Discussion  
+Get HotKeyVariable instance while set some HotKeyVariable instance variable  
+```
 func registerMethodWithTarget(target target: AnyObject, method: String) -> Bool
 func registerMethodWithTarget(target target: AnyObject, method: String, afterDelay: NSTimeInterval) -> Bool
-
-Discussion
-This method able to register "method called by hotkey" using target and method string.
-
+```
+Discussion  
+This method able to register "method called by hotkey" using target and method string.  
+```
 func registerBlock(block block: ()->Void) -> Bool
 func registerBlock(block block: ()->Void, afterDelay: NSTimeInterval) -> Bool
-
-Discussion
-This method able to register "method called by hotkey" using closure.
 ```
+Discussion  
+This method able to register "method called by hotkey" using closure.  
