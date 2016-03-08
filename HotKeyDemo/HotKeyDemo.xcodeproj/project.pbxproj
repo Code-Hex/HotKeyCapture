@@ -1,0 +1,372 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7083ACA01C8EADAC0046AF0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7083AC961C8EADAC0046AF0D /* Assets.xcassets */; };
+		7083ACA11C8EADAC0046AF0D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7083AC971C8EADAC0046AF0D /* MainMenu.xib */; };
+		7083ACA21C8EADAC0046AF0D /* HKCAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AC991C8EADAC0046AF0D /* HKCAppDelegate.swift */; };
+		7083ACA31C8EADAC0046AF0D /* HotKeyBroadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AC9A1C8EADAC0046AF0D /* HotKeyBroadcaster.swift */; };
+		7083ACA41C8EADAC0046AF0D /* HotKeyCapture.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 7083AC9B1C8EADAC0046AF0D /* HotKeyCapture.entitlements */; };
+		7083ACA51C8EADAC0046AF0D /* HotKeyComboPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083AC9C1C8EADAC0046AF0D /* HotKeyComboPanel.swift */; };
+		7083ACA61C8EADAC0046AF0D /* HotKeyComboPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7083AC9D1C8EADAC0046AF0D /* HotKeyComboPanel.xib */; };
+		7083ACA71C8EADAC0046AF0D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7083AC9E1C8EADAC0046AF0D /* Info.plist */; };
+		78495E7AC33C788BF9715E2E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE16573D462193AB8A2061B /* Pods.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4F2CEFEAAA791A4297C1BE63 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6AE16573D462193AB8A2061B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7083AC841C8EAD5B0046AF0D /* HotKeyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotKeyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7083AC961C8EADAC0046AF0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7083AC981C8EADAC0046AF0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		7083AC991C8EADAC0046AF0D /* HKCAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKCAppDelegate.swift; sourceTree = "<group>"; };
+		7083AC9A1C8EADAC0046AF0D /* HotKeyBroadcaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyBroadcaster.swift; sourceTree = "<group>"; };
+		7083AC9B1C8EADAC0046AF0D /* HotKeyCapture.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HotKeyCapture.entitlements; sourceTree = "<group>"; };
+		7083AC9C1C8EADAC0046AF0D /* HotKeyComboPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyComboPanel.swift; sourceTree = "<group>"; };
+		7083AC9D1C8EADAC0046AF0D /* HotKeyComboPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotKeyComboPanel.xib; sourceTree = "<group>"; };
+		7083AC9E1C8EADAC0046AF0D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A95F94EFE75BC991B22E0AB1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7083AC811C8EAD5B0046AF0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78495E7AC33C788BF9715E2E /* Pods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2DFC00E4AF7DF6BCEC022AA4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A95F94EFE75BC991B22E0AB1 /* Pods.debug.xcconfig */,
+				4F2CEFEAAA791A4297C1BE63 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7083AC7B1C8EAD5B0046AF0D = {
+			isa = PBXGroup;
+			children = (
+				7083AC941C8EADAC0046AF0D /* HotKeyDemo */,
+				7083AC851C8EAD5B0046AF0D /* Products */,
+				2DFC00E4AF7DF6BCEC022AA4 /* Pods */,
+				98A5149368E307B1A08D38B3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7083AC851C8EAD5B0046AF0D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7083AC841C8EAD5B0046AF0D /* HotKeyDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7083AC941C8EADAC0046AF0D /* HotKeyDemo */ = {
+			isa = PBXGroup;
+			children = (
+				7083AC961C8EADAC0046AF0D /* Assets.xcassets */,
+				7083AC971C8EADAC0046AF0D /* MainMenu.xib */,
+				7083AC991C8EADAC0046AF0D /* HKCAppDelegate.swift */,
+				7083AC9A1C8EADAC0046AF0D /* HotKeyBroadcaster.swift */,
+				7083AC9B1C8EADAC0046AF0D /* HotKeyCapture.entitlements */,
+				7083AC9C1C8EADAC0046AF0D /* HotKeyComboPanel.swift */,
+				7083AC9D1C8EADAC0046AF0D /* HotKeyComboPanel.xib */,
+				7083AC9E1C8EADAC0046AF0D /* Info.plist */,
+			);
+			path = HotKeyDemo;
+			sourceTree = "<group>";
+		};
+		98A5149368E307B1A08D38B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6AE16573D462193AB8A2061B /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7083AC831C8EAD5B0046AF0D /* HotKeyDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7083AC911C8EAD5B0046AF0D /* Build configuration list for PBXNativeTarget "HotKeyDemo" */;
+			buildPhases = (
+				475B8EDF90F2DA29DD439DAF /* Check Pods Manifest.lock */,
+				7083AC801C8EAD5B0046AF0D /* Sources */,
+				7083AC811C8EAD5B0046AF0D /* Frameworks */,
+				7083AC821C8EAD5B0046AF0D /* Resources */,
+				9F48019AFA20C21571353D4E /* Embed Pods Frameworks */,
+				A2D6EF89CDC45B6A08EA7E32 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HotKeyDemo;
+			productName = HotKeyDemo;
+			productReference = 7083AC841C8EAD5B0046AF0D /* HotKeyDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7083AC7C1C8EAD5B0046AF0D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = CodeHex;
+				TargetAttributes = {
+					7083AC831C8EAD5B0046AF0D = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 7083AC7F1C8EAD5B0046AF0D /* Build configuration list for PBXProject "HotKeyDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7083AC7B1C8EAD5B0046AF0D;
+			productRefGroup = 7083AC851C8EAD5B0046AF0D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7083AC831C8EAD5B0046AF0D /* HotKeyDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7083AC821C8EAD5B0046AF0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7083ACA01C8EADAC0046AF0D /* Assets.xcassets in Resources */,
+				7083ACA61C8EADAC0046AF0D /* HotKeyComboPanel.xib in Resources */,
+				7083ACA41C8EADAC0046AF0D /* HotKeyCapture.entitlements in Resources */,
+				7083ACA71C8EADAC0046AF0D /* Info.plist in Resources */,
+				7083ACA11C8EADAC0046AF0D /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		475B8EDF90F2DA29DD439DAF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9F48019AFA20C21571353D4E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2D6EF89CDC45B6A08EA7E32 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7083AC801C8EAD5B0046AF0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7083ACA51C8EADAC0046AF0D /* HotKeyComboPanel.swift in Sources */,
+				7083ACA31C8EADAC0046AF0D /* HotKeyBroadcaster.swift in Sources */,
+				7083ACA21C8EADAC0046AF0D /* HKCAppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7083AC971C8EADAC0046AF0D /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7083AC981C8EADAC0046AF0D /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7083AC8F1C8EAD5B0046AF0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7083AC901C8EAD5B0046AF0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7083AC921C8EAD5B0046AF0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A95F94EFE75BC991B22E0AB1 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = HotKeyDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CodeHex.HotKeyDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7083AC931C8EAD5B0046AF0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F2CEFEAAA791A4297C1BE63 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = HotKeyDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CodeHex.HotKeyDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7083AC7F1C8EAD5B0046AF0D /* Build configuration list for PBXProject "HotKeyDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7083AC8F1C8EAD5B0046AF0D /* Debug */,
+				7083AC901C8EAD5B0046AF0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7083AC911C8EAD5B0046AF0D /* Build configuration list for PBXNativeTarget "HotKeyDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7083AC921C8EAD5B0046AF0D /* Debug */,
+				7083AC931C8EAD5B0046AF0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7083AC7C1C8EAD5B0046AF0D /* Project object */;
+}

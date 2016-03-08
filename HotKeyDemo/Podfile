@@ -1,0 +1,4 @@
+platform :osx, '10.10'
+use_frameworks!
+
+pod 'HotKeyCapture', :git => 'https://github.com/Code-Hex/HotKeyCapture.git'
