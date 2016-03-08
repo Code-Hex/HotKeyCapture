@@ -25,6 +25,7 @@ If you don't use cocoapods, you can prepare these files.
   - HotKeyCombo.swift
   - HotKeyVariable.swift
   - Info.plist // Maybe unnecessary...  
+
 and these files into your project.  
 
 ###class HotKeyCapture
